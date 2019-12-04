@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #232323;
+  color: #f3f3f3;
+}
+*:focus {
+  outline: none !important;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+a {
+  color: #f3f3f3;
+  text-decoration: none;
+  transition: .2s;;
+}
+a:hover {
+  color: #fff;
+}
