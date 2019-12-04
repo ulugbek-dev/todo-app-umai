@@ -25,7 +25,7 @@ const H1 = styled.h1`
 
 export default function Navbar() {
     return (
-        <Wrapper navbar>
+        <Wrapper vertical>
             <Header>
                 <H1>To<span>Do</span></H1>
                 
@@ -33,7 +33,7 @@ export default function Navbar() {
                     <NavLink activeClassName="active" exact to="/">Home</NavLink>
                     <NavLink activeClassName="active" exact to="/completed">Completed</NavLink>
                     <NavLink activeClassName="active" exact to="/trash">Trash</NavLink>
-                    <NavLink activeClassName="active" exact to="/edit">Create/Edit</NavLink>
+                    <NavLink activeClassName="active" exact to="/edit">Edit</NavLink>
                 </div>
             </Header>
         </Wrapper>

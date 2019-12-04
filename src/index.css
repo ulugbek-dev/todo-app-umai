@@ -19,3 +19,34 @@ a {
 a:hover {
   color: #fff;
 }
+
+/* Add form */
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+form input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #37bd95;
+  color: #f3f3f3;
+  font-size: 16px;
+  padding: 8px;
+  min-width: 200px;
+}
+form button {
+  background: #37bd95;
+  border: 1px solid transparent;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  margin-left: 12px;
+  cursor: pointer;
+  transition: .2s;
+}
+form button:hover {
+  border: 1px solid #37bd95;
+  background: transparent;
+  color: #37bd95;
+}
