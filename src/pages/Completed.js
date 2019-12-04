@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Wrapper } from '../elements/Wrapper'
 import { EmptyTodo } from '../elements/EmptyTodo'
 import Todo from '../components/Todo'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function Completed() {
+
+    useEffect(() => {
+        dispatch({
+            type: 'INDICATOR',
+            payload: 'complete'
+        })
+    }, [])
 
     const todos = useSelector(state => state.todos.filter(x => x.completed === true))
     const dispatch = useDispatch()

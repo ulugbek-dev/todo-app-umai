@@ -5,7 +5,8 @@ const initialState = {
         []
     ) : (
         JSON.parse(localStorage.getItem('Todos'))
-    )
+    ),
+    indicator: []
 }
 
 export default function todos(state = initialState, { type, payload }) {
@@ -13,17 +14,20 @@ export default function todos(state = initialState, { type, payload }) {
         case 'ADD':
             return {
                 ...state,
-                todos: [...state.todos, { ...payload }]
+                todos: [...state.todos, { ...payload }],
+                indicator: [...state.indicator, 'pending']
             }
         case 'COMPLETE':
             return {
                 ...state,
-                todos: state.todos.map(todo => todo.id === payload ? {...todo, completed: !todo.completed, completedDate: date()} : todo)
+                todos: state.todos.map(todo => todo.id === payload ? {...todo, completed: !todo.completed, completedDate: date()} : todo),
+                indicator: [...state.indicator, 'complete']
             }
         case 'INCOMPLETE':
             return {
                 ...state,
-                todos: state.todos.map(todo => todo.id === payload ? {...todo, completed: !todo.completed} : todo)
+                todos: state.todos.map(todo => todo.id === payload ? {...todo, completed: !todo.completed} : todo),
+                indicator: [...state.indicator, 'pending']
             }
         case 'MOVE_TO_TRASH':
             return {
@@ -39,6 +43,11 @@ export default function todos(state = initialState, { type, payload }) {
             return {
                 ...state,
                 todos: state.todos.map(todo => todo.id === payload ? {...todo, text: payload}: todo)
+            }
+        case 'INDICATOR':
+            return {
+                ...state,
+                indicator: state.indicator.filter(x => x !== payload)
             }
         default:
             return state

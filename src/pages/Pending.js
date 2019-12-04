@@ -1,10 +1,17 @@
-import React from 'react'
-import { Wrapper } from './../elements/Wrapper'
-import { EmptyTodo } from './../elements/EmptyTodo'
-import Todo from './../components/Todo'
+import React, { useEffect } from 'react'
+import { Wrapper } from '../elements/Wrapper'
+import { EmptyTodo } from '../elements/EmptyTodo'
+import Todo from '../components/Todo'
 import { useSelector, useDispatch } from 'react-redux'
 
-export default function Home() {
+export default function Pending() {
+
+    useEffect(() => {
+        dispatch({
+            type: 'INDICATOR',
+            payload: 'pending'
+        })
+    }, [])
 
     const todos = useSelector(state => state.todos.filter(x => x.completed === false))
     const dispatch = useDispatch()
@@ -35,7 +42,6 @@ export default function Home() {
                             key={i}
                             name={todo.text}
                             dueDate={todo.dueDate}
-                            completedDate={todo.completedDate}
                             deleteHandle={() => deleteHandle(todo.id)}
                             completeHandle={() => completeHandle(todo.id)}
                         />

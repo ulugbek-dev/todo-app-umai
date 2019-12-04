@@ -18,9 +18,9 @@ export default function Navbar() {
                 <H1>To<span>Do</span></H1>
                 
                 <div>
-                    <NavLink activeClassName="active" exact to="/">Pending</NavLink>
-                    <NavLink activeClassName="active" exact to="/completed">Completed</NavLink>
-                    <NavLink activeClassName="active" exact to="/trash">Trash</NavLink>
+                    <NavLink activeClassName="active" exact to="/">Pending<span className="pending-in"></span></NavLink>
+                    <NavLink activeClassName="active" exact to="/completed">Completed<span className="completed-in"></span></NavLink>
+                    <NavLink activeClassName="active" exact to="/trash">Trash<span className="trash-in"></span></NavLink>
                     <NavLink activeClassName="active" exact to="/add-task">Add</NavLink>
                 </div>
             </Header>

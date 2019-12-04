@@ -5,11 +5,12 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   a {
-      margin-left: 34px;
-      padding: 4px 0;
+    margin-left: 34px;
+    padding: 4px 0;
+    position: relative;
   }
   a.active {
-      border-bottom: 2px solid #37bd95;
+    border-bottom: 2px solid #37bd95;
   }
   @media (max-width: 768px) {
     flex-direction: column;

@@ -58,3 +58,16 @@ form button:hover {
 .completed .undone {
   display: unset !important;
 }
+
+/* indicator */
+.pending .pending-in,
+.complete .completed-in,
+.trash .trash-in {
+  padding: 4px;
+  position: absolute;
+  top: 0;
+  right: -8px;
+  background: red;
+  border-radius: 50%;
+  display: block !important;
+}
