@@ -33,7 +33,7 @@ export default function Navbar() {
                     <NavLink activeClassName="active" exact to="/">Home</NavLink>
                     <NavLink activeClassName="active" exact to="/completed">Completed</NavLink>
                     <NavLink activeClassName="active" exact to="/trash">Trash</NavLink>
-                    <NavLink activeClassName="active" exact to="/edit">Edit</NavLink>
+                    <NavLink activeClassName="active" exact to="/add-task">Add Task</NavLink>
                 </div>
             </Header>
         </Wrapper>

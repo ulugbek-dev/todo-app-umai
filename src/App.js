@@ -4,9 +4,11 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Completed from './pages/Completed'
 import Trash from './pages/Trash'
+import AddTask from './pages/AddTask'
 import Edit from './pages/Edit'
 
 export default function App() {
+  
   return (
     <Router>
       <div className="App">
@@ -15,6 +17,7 @@ export default function App() {
         <Route path="/" exact component={Home} />
         <Route path="/completed" exact component={Completed} />
         <Route path="/trash" exact component={Trash} />
+        <Route path="/add-task" exact component={AddTask} />
         <Route path="/edit" exact component={Edit} />
       </div>
     </Router>

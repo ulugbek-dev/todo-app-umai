@@ -50,3 +50,11 @@ form button:hover {
   background: transparent;
   color: #37bd95;
 }
+
+/* Completed page */
+.completed .done {
+  display: none;
+}
+.completed .undone {
+  display: unset !important;
+}

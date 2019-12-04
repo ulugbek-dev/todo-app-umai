@@ -1,27 +1,13 @@
 import React, { useState } from 'react'
 import { Wrapper } from './../elements/Wrapper'
 import { useDispatch } from 'react-redux'
+import { date } from './../components/Date'
 
-export default function Add() {
+const uuid = require('uuid')
 
+export default function AddTask() {
     const dispatch = useDispatch()
     const [todo, setTodo] = useState('')
-
-    const date = () => {
-        let today = new Date(),
-            dd = today.getDate(),
-            mm = today.getMonth()+1, 
-            yyyy = today.getFullYear()
-    
-        if(dd<10) {
-            dd='0'+dd;
-        }
-        if(mm<10) {
-            mm='0'+mm;
-        }
-
-        return mm+'-'+dd+'-'+yyyy;
-    }
 
     // Handlers
     const submitHandle = (e) => {
@@ -29,8 +15,10 @@ export default function Add() {
         if(todo.trim() === '') return;
 
         dispatch({
+            id: uuid(),
             type: 'ADD',
             payload: {
+                id: uuid(),
                 text: todo,
                 dueDate: date(),
                 completed: false,

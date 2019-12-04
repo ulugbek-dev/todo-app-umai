@@ -25,7 +25,8 @@ export const Card = styled.div`
     }
     p {
         color: #b3b3b3;
-        margin: 0;
+        margin: 2px 0;
+        font-size: 14px;
         span {
             padding-left: 8px;
             color: #f3f3f3;
@@ -33,6 +34,8 @@ export const Card = styled.div`
     }
     svg {
         height: 18px;
+        cursor: pointer;
+        margin-left: 18px;
         path {
             fill: #fff;
             transition: .2s;
@@ -44,7 +47,8 @@ export const Card = styled.div`
     svg.trash:hover > path {
         fill: red;
     }
-    a {
-        margin-left: 18px;
+    svg.undone {
+        fill: pink;
+        display: none;
     }
 `

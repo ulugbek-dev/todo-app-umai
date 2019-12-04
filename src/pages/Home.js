@@ -1,33 +1,48 @@
 import React from 'react'
-import { Wrapper } from '../elements/Wrapper'
-import Todo from '../components/Todo'
-import Add from '../components/Add'
+import { Wrapper } from './../elements/Wrapper'
+import { EmptyTodo } from './../elements/EmptyTodo'
+import Todo from './../components/Todo'
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function Home() {
 
-    const todos = useSelector(state => state.todos)
+    const todos = useSelector(state => state.todos.filter(x => x.completed === false))
     const dispatch = useDispatch()
 
+    // Update Local Storage
+    localStorage.setItem('Todos', JSON.stringify(todos))
+
+    //Handlers
     const deleteHandle = (i) => {
-        console.log(i)
+        dispatch({
+            type: 'DELETE',
+            payload: i
+        })
+    }
+    const completeHandle = (i) => {
+        dispatch({
+            type: 'COMPLETE',
+            payload: i
+        })
     }
 
     return (
-        <>
-            <Add />
-            
+        <>            
             <Wrapper>
-                {todos.map((todo, i) => todos.length === 0 ? (
-                    <p>You don't have any tasks</p>
-                ) : (
-                    <Todo
-                        key={i}
-                        name={todo.text}
-                        dueDate={todo.dueDate}
-                        deleteHandle={() => deleteHandle(i)}
-                    />
-                ))}
+                {todos.length !== 0 ? (
+                    todos.map((todo, i) => (
+                        <Todo
+                            key={i}
+                            name={todo.text}
+                            dueDate={todo.dueDate}
+                            completedDate={todo.completedDate}
+                            deleteHandle={() => deleteHandle(todo.id)}
+                            completeHandle={() => completeHandle(todo.id)}
+                        />
+                    )
+                )) : (
+                    <EmptyTodo>You dont have any tasks</EmptyTodo>
+                )}
             </Wrapper>
         </>
     )
