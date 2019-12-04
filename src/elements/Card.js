@@ -26,10 +26,13 @@ export const Card = styled.div`
     p {
         color: #b3b3b3;
         margin: 2px 0;
-        font-size: 14px;
+        font-size: 12px;
+        display: flex;
         span {
             padding-left: 8px;
             color: #f3f3f3;
+            flex: 1;
+            text-align: right;
         }
     }
     svg {
