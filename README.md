@@ -33,7 +33,7 @@ Before starting, make sure you have installed NodeJS with NPM in your machine
 
 - The project deployed in Zeit.co Now server for online view
 
-        https://ajobthing-test-fupndyj5e.now.sh
+        https://todo-app-umai.now.sh/
         
 
 ## About Project
