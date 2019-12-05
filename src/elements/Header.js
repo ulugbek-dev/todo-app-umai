@@ -14,5 +14,8 @@ export const Header = styled.header`
   }
   @media (max-width: 768px) {
     flex-direction: column;
+    a {
+      margin: 0 15px;
+    }
   }
 `
