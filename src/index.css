@@ -19,29 +19,35 @@ a {
 a:hover {
   color: #fff;
 }
+.pages_headline {
+  border-bottom: 2px solid #37bd95;
+  display: inline-block;
+  padding-bottom: 4px;;
+}
 
 /* Add form */
 form {
-  display: flex;
-  justify-content: center;
-  margin-top: 60px;
+  margin: auto;
+  margin-top: 80px;
+  max-width: 320px;
+  text-align: center;
 }
 form input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #37bd95;
-  color: #f3f3f3;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #37bd95 !important;
+  color: #f3f3f3 !important;
   font-size: 16px;
-  padding: 8px;
-  min-width: 200px;
+  padding: 8px !important;
+  width: 100% !important;
+  margin-bottom: 24px;
 }
 form button {
   background: #37bd95;
   border: 1px solid transparent;
   font-size: 16px;
-  padding: 8px;
+  padding: 10px 30px;
   border-radius: 4px;
-  margin-left: 12px;
   cursor: pointer;
   transition: .2s;
 }
@@ -52,10 +58,21 @@ form button:hover {
 }
 
 /* Completed page */
-.completed .done {
+.completed .done,
+.completed .edit {
   display: none;
 }
 .completed .undone {
+  display: unset !important;
+}
+
+/* Trash page */
+.bin .done,
+.bin .undone,
+.bin .edit {
+  display: none;
+}
+.bin .restore {
   display: unset !important;
 }
 
@@ -70,4 +87,18 @@ form button:hover {
   background: red;
   border-radius: 50%;
   display: block !important;
+}
+
+/* Message */
+.show div {
+  display: block !important;
+  opacity: 0;
+  transform: translateY(50%);
+  animation: message .2s forwards;
+}
+@keyframes message {
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

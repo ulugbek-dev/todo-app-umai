@@ -8,4 +8,11 @@ export const Wrapper = styled.div`
     ) : (
         css`padding: 40px 30px;`
     )}
+    @media(max-width: 512px) {
+        ${props => props.vertical ? (
+            css`padding: 0 15px;`
+        ) : (
+            css`padding: 40px 15px;`
+        )}  
+    }
 `

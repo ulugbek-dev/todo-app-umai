@@ -2,31 +2,50 @@ import React, { useState } from 'react'
 import { Wrapper } from './../elements/Wrapper'
 import { useDispatch } from 'react-redux'
 import { date } from './../components/Date'
+import ModernDatepicker from 'react-modern-datepicker'
 
 const uuid = require('uuid')
 
 export default function AddTask() {
     const dispatch = useDispatch()
     const [todo, setTodo] = useState('')
+    const [dueDate, setDueDate] = useState('')
 
     // Handlers
     const submitHandle = (e) => {
         e.preventDefault()
-        if(todo.trim() === '') return;
+        if(todo.trim() === '' || dueDate.trim() === '') {
+            alert('Both inputs are required')
+            return;
+        }
 
         dispatch({
-            id: uuid(),
             type: 'ADD',
             payload: {
-                id: uuid(),
-                text: todo,
-                dueDate: date(),
-                completed: false,
-                deleted: false
+                todo: {
+                    id: uuid(),
+                    text: todo,
+                    dueDate: dueDate,
+                    addedDate: date(),
+                    completed: false,
+                    deleted: false
+                },
+                message: 'Todo was added'
             }
         })
+        setTimeout(() => {
+            dispatch({
+                type: 'HIDE_MESSAGE',
+                payload: ''
+            })
+        }, 2000)
 
         setTodo('')        
+        setDueDate('')        
+    }
+
+    const handleDateChange = date => {
+        setDueDate(date)
     }
 
     return (
@@ -36,6 +55,20 @@ export default function AddTask() {
                     placeholder="Enter task"
                     value={todo}
                     onChange={(e) => setTodo(e.target.value)}
+                />
+                <ModernDatepicker
+                    date={dueDate}
+                    format={'DD-MM-YYYY'}
+                    showBorder
+                    className="color"
+                    id="someId"
+                    onChange={date => handleDateChange(date)}
+                    placeholder={'Select a due date'}
+                    primaryColor={'#37bd95'}
+                    secondaryColor={'#f3f3f3'}
+                    primaryTextColor={'#4f6457'}
+                    secondaryTextColor={'#acd0c0'}
+
                 />
                 <button>Add Task</button>
             </form>

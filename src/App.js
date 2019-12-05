@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Message from './components/Message'
 import Pending from './pages/Pending'
 import Completed from './pages/Completed'
 import Trash from './pages/Trash'
@@ -12,7 +13,6 @@ export default function App() {
   
   const indicator = useSelector(state => state.indicator).join(' ')
 
-console.log(indicator)
   return (
     <Router>
       <div className={`App ${indicator}`}>
@@ -22,7 +22,9 @@ console.log(indicator)
         <Route path="/completed" exact component={Completed} />
         <Route path="/trash" exact component={Trash} />
         <Route path="/add-task" exact component={AddTask} />
-        <Route path="/edit" exact component={Edit} />
+        <Route path="/edit/:id" component={Edit} />
+
+        <Message />
       </div>
     </Router>
   )

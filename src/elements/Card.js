@@ -35,7 +35,7 @@ export const Card = styled.div`
             text-align: right;
         }
     }
-    svg {
+    svg, a{
         height: 18px;
         cursor: pointer;
         margin-left: 18px;
@@ -50,8 +50,17 @@ export const Card = styled.div`
     svg.trash:hover > path {
         fill: red;
     }
-    svg.undone {
-        fill: pink;
+    svg.undone ,
+    svg.restore {
         display: none;
+    }
+    @media(max-width: 512px) {
+        border-bottom: 1px solid #37bd95;
+        border-radius: 0;
+        :hover {
+            background: transparent;
+            padding: 14px 0px;
+            transform: scale(1);
+        }
     }
 `
