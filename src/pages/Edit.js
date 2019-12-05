@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import ModernDatepicker from 'react-modern-datepicker'
 import { Redirect } from 'react-router'
 
-const uuid = require('uuid')
-
 export default function Edit({ match }) {
 
     // Hooks

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Wrapper } from './../elements/Wrapper'
 import { date } from './../components/Date'
 import ModernDatepicker from 'react-modern-datepicker'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 const uuid = require('uuid')
 
