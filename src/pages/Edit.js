@@ -10,11 +10,8 @@ export default function Edit({ match }) {
 
     // Hooks
     const [saved, setSaved] = useState(false)
-
-    const editTodo = useSelector(state => state.todos.filter(todo => 
-        todo.id === match.params.id))
+    const editTodo = useSelector(state => state.todos.filter(todo => todo.id === match.params.id))
     const dispatch = useDispatch()
-
     const [todo, setTodo] = useState(editTodo[0].text)
     const [dueDate, setDueDate] = useState(editTodo[0].dueDate)
     
@@ -34,16 +31,9 @@ export default function Edit({ match }) {
                 message: 'Saved'
             }
         })
-        setTimeout(() => {
-            dispatch({
-                type: 'HIDE_MESSAGE',
-                payload: ''
-            })
-        }, 2000)
 
         setSaved(true)
     }
-
     const handleDateChange = date => {
         setDueDate(date)
     }

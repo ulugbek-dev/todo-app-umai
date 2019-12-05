@@ -2,15 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card } from '../elements/Card'
 
-export default function Todo({  id,
-                                name,
-                                dueDate, 
-                                addedDate, 
-                                deleteHandle, 
-                                completeHandle, 
-                                incompleteHandle, 
-                                restoreHandle,
-                                children }) {
+export default function Todo({ id, name, dueDate, addedDate, deleteHandle, completeHandle, incompleteHandle, restoreHandle, children }) {
     return (
         <Card>
             <div>

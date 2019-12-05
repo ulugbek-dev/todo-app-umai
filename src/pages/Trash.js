@@ -6,18 +6,17 @@ import { useSelector, useDispatch } from 'react-redux'
 
 export default function Trash() {
 
+    // Hooks
     const todos = useSelector(state => state.todos.filter(x => x.deleted === true))
     const dispatch = useDispatch()
 
+    // Remove indicator
     useEffect(() => {
         dispatch({
             type: 'INDICATOR',
             payload: 'trash'
         })
     }, [dispatch])
-
-    // Update Local Storage
-    localStorage.setItem('Todos', JSON.stringify(useSelector(state => state.todos)))
 
     //Handlers
     const deleteHandle = (i) => {
@@ -28,12 +27,6 @@ export default function Trash() {
                 message: 'Todo permanently deleted'
             }
         })
-        setTimeout(() => {
-            dispatch({
-                type: 'HIDE_MESSAGE',
-                payload: ''
-            })
-        }, 2000)
     }
     const restoreHandle = (i) => {
         if(todos[0].completed === false) {
@@ -44,12 +37,6 @@ export default function Trash() {
                     message: 'Todo restored and move to pending'
                 }
             })
-            setTimeout(() => {
-                dispatch({
-                    type: 'HIDE_MESSAGE',
-                    payload: ''
-                })
-            }, 2000)
         } else {
             dispatch({
                 type: 'RESTORE_COMPLETE',
@@ -58,12 +45,6 @@ export default function Trash() {
                     message: 'Todo restored and move to completed'
                 }
             })
-            setTimeout(() => {
-                dispatch({
-                    type: 'HIDE_MESSAGE',
-                    payload: ''
-                })
-            }, 2000)
         }
     }
 
@@ -87,7 +68,7 @@ export default function Trash() {
                             </Todo>
                         )
                     )) : (
-                        <EmptyTodo>You dont have any todos</EmptyTodo>
+                        <EmptyTodo>Trash is empty</EmptyTodo>
                     )}
                 </div>
             </Wrapper>

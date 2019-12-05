@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { Wrapper } from './../elements/Wrapper'
-import { useDispatch } from 'react-redux'
 import { date } from './../components/Date'
 import ModernDatepicker from 'react-modern-datepicker'
+import { useSelector, useDispatch } from 'react-redux'
 
 const uuid = require('uuid')
 
 export default function AddTask() {
+    
+    // Hooks
     const dispatch = useDispatch()
     const [todo, setTodo] = useState('')
     const [dueDate, setDueDate] = useState('')
@@ -33,12 +35,6 @@ export default function AddTask() {
                 message: 'Todo was added'
             }
         })
-        setTimeout(() => {
-            dispatch({
-                type: 'HIDE_MESSAGE',
-                payload: ''
-            })
-        }, 2000)
 
         setTodo('')        
         setDueDate('')        

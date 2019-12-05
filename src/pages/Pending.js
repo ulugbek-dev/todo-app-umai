@@ -6,18 +6,17 @@ import { useSelector, useDispatch } from 'react-redux'
 
 export default function Pending() {
 
+    // Hooks
     const todos = useSelector(state => state.todos.filter(x => x.completed === false && x.deleted === false))
     const dispatch = useDispatch()
 
+    // Remove indicator
     useEffect(() => {
         dispatch({
             type: 'INDICATOR',
             payload: 'pending'
         })
     }, [dispatch])
-
-    // Update Local Storage
-    localStorage.setItem('Todos', JSON.stringify(useSelector(state => state.todos)))
 
     //Handlers
     const deleteHandle = (i) => {
@@ -28,12 +27,6 @@ export default function Pending() {
                 message: 'Todo moved to trash'
             }
         })
-        setTimeout(() => {
-            dispatch({
-                type: 'HIDE_MESSAGE',
-                payload: ''
-            })
-        }, 2000)
     }
     const completeHandle = (i) => {
         dispatch({
@@ -43,12 +36,6 @@ export default function Pending() {
                 message: 'Todo moved to completed'
             }
         })
-        setTimeout(() => {
-            dispatch({
-                type: 'HIDE_MESSAGE',
-                payload: ''
-            })
-        }, 2000)
     }
 
     return (
