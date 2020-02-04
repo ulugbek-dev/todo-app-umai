@@ -10,7 +10,7 @@ Before starting, make sure you have installed NodeJS with NPM in your machine
     
 - Clone git repository using command below
     
-        git clone https://github.com/ulugbek-dev/todo-app-umai.git
+        git clone https://github.com/ulugbek-dev/todo-react.git
 
 ### Step 2:
 
