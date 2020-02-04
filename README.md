@@ -33,7 +33,7 @@ Before starting, make sure you have installed NodeJS with NPM in your machine
 
 - The project deployed in Zeit.co Now server for online view
 
-        https://todo-react-app.now.sh/
+        https://todo-react-nu.now.sh/
         
 
 ## About Project
